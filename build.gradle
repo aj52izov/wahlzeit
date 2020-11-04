@@ -28,6 +28,8 @@ dependencies {
     implementation 'com.sun.mail:javax.mail:1.6.2'
     
     testImplementation 'junit:junit:4.12'
+    
+    runtime files('postgresql-42.2.8.jar', 'postgresql-42.2.18.jar')
 }
 
 test {
