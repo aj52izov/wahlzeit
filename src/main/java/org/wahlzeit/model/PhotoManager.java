@@ -231,6 +231,20 @@ public class PhotoManager extends ObjectManager {
 
 		return result;
 	}
+        
+        
+	/**
+	 * @methodtype command
+	 */
+	public Persistent findPhotosByLocation(LocationId locationId) {
+		try {
+			PreparedStatement stmt = getReadingStatement("SELECT * FROM photos WHERE location_id = ?");
+			return readObject(stmt, locationId.asString());
+		} catch (SQLException sex) {
+			SysLog.logThrowable(sex);
+	}
+                return null;
+        }        
 	
 	/**
 	 * 

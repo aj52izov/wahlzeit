@@ -15,9 +15,26 @@ CREATE TABLE users (
 	creation_time bigint
 );
 
+
+CREATE TABLE loordinates (
+	id integer PRIMARY KEY,
+        x_coodinate double precision,
+        y_coodinate double precision,
+        z_coodinate double precision,
+	creation_time bigint
+);
+
+CREATE TABLE locations (
+	id integer PRIMARY KEY,
+        coordinate_id integer REFERENCES coordinates(id),
+	creation_time bigint
+);
+
+
 CREATE TABLE photos (
 	id integer PRIMARY KEY,
 	owner_id integer REFERENCES users(id),
+        location_id integer,
 	owner_name text,
 	owner_notify_about_praise boolean,
 	owner_email_address text,
@@ -31,6 +48,7 @@ CREATE TABLE photos (
 	no_votes integer,
 	creation_time bigint
 );
+
 
 CREATE TABLE tags (
 	tag text,
