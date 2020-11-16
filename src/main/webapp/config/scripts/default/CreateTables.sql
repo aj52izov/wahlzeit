@@ -16,7 +16,7 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE loordinates (
+CREATE TABLE coordinates (
 	id integer PRIMARY KEY,
         x_coodinate double precision,
         y_coodinate double precision,
